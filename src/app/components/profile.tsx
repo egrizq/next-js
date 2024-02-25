@@ -12,17 +12,9 @@ type Status = {
     current: 'pending' | 'on going'
 }
 
-type PersonList = {
-    names: {
-        first: string
-        last: string
-    }[]
-}
-
-
-const Nama: React.FC<{ input: Data; condition: Status; personList: PersonList }> = ({ input, condition, personList }) => {
+const Nama: React.FC<{ input: Data; condition: Status; }> = ({ input, condition }) => {
     
-    let message = ""
+    let message
     if (condition.current === 'pending') {
         message = "pending"
     } else if (condition.current === 'on going') {
@@ -38,18 +30,9 @@ const Nama: React.FC<{ input: Data; condition: Status; personList: PersonList }>
             <p className={"text-center pt-4 font-medium"}>
                 Status: {message}
             </p>
-
-            <div className='text-center p-4'>
-                {personList.names.map((name) => {
-                    return (
-                        <p key={name.last} className='text-red-600'> 
-                            {name.first} {name.last} 
-                        </p>
-                    )})}
-            </div>
         </>
     )
 }
 
 export default Nama;
-export type { Data, Status, PersonList};
+export type { Data, Status };

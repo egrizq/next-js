@@ -1,4 +1,5 @@
-import Nama, {Data, Status, PersonList} from "../components/profile";
+// import SchoolData, { School } from "../components/loop";
+import Nama, {Data, Status} from "../components/profile";
 
 export default function Profile() {
     const data:Data = {
@@ -10,20 +11,19 @@ export default function Profile() {
     }
 
     const status:Status = {
-        current: "pending"
+        current: "on going"
     }
 
-    const list: PersonList = {
-        names: [
-            {first: "rizq", last:"ramadhan"},
-            {first: "bruce", last:""},
-            {first: "princess", last:"diana"},
-        ]
-    };
-
+    // const schoolList: School = [
+    //     { lokasi: 'Alice', level: 'Smith' },
+    //     { lokasi: 'Bob', level: 'Johnson' },
+    //     { lokasi: 'Charlie', level: 'Brown' },
+    // ];
+      
     return (
         <>
-            <Nama input={data} condition={status} personList={list}/>
+            <Nama input={data} condition={status}/>
+            {/* <SchoolData school={schoolList} /> */}
         </>
     )
 }
