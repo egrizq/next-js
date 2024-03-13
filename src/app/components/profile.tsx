@@ -1,6 +1,6 @@
 import '../styles.css';
 
-type Data = {
+export type Data = {
     username: string
     alamat: {
         provinsi: string
@@ -8,9 +8,10 @@ type Data = {
     }
 }
 
-type Status = {
+export type Status = {
     current: 'pending' | 'on going'
 }
+
 
 const Nama: React.FC<{ input: Data; condition: Status; }> = ({ input, condition }) => {
     
@@ -35,4 +36,3 @@ const Nama: React.FC<{ input: Data; condition: Status; }> = ({ input, condition 
 }
 
 export default Nama;
-export type { Data, Status };

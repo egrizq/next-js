@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+        mono: ['Cascadia Mono', 'monospace']
+    }
   },
   plugins: [],
 };

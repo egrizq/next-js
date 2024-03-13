@@ -5,11 +5,17 @@ export default function Product() {
         {lokasi: "bekasi", level: "sd"},
         {lokasi: "jakarta", level: "smp"},
         {lokasi: "bandung", level: "smk"}
-    ]        
+    ]      
+
+    const fruits = ['apple', 'banana', 'orange'];
 
     return (
         <>
-            <SchoolData school={items}/>
+            <ul>
+                {fruits.map((fruit) => (
+                    <li key={fruit}>{fruit}</li>
+                ))}
+            </ul>
         </>
     )
 }
