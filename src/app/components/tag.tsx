@@ -1,11 +1,23 @@
-const Tag: React.FC<{tag: string}> = ({tag}) => {
+const Tag: React.FC<{name: string}> = ({name}) => {
     return (
         <>
-            <div className="bg-green-400 p-1 rounded-md text-xs">
-                {tag}
+            <div className="p-1">
+                <div className="flex bg-green-400 p-1 rounded-md text-xs items-center">
+                    <span>{name}</span>
+                </div>
             </div>
         </>
     )
 }
 
-export default Tag;
+const Tags: React.FC<{names: string[]}> = ({names}) => {
+    return (
+        <>
+            {names.map((name, index) => (
+                <Tag key={index} name={name} />
+            ))}
+        </>
+    )
+}
+
+export default Tags;
