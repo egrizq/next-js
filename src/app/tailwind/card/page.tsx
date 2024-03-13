@@ -1,29 +1,42 @@
-import Tags from "@/app/components/tag";
+"use client"
+import { useState } from "react";
 import "../../styles.css"
-import { Main, SourceCode, Title } from "@/app/components/article";
+import CreateCard from "@/app/components/card";
 
 export default function ColorCardCenter() {
+    const [show, setShow] = useState<boolean>(true)
+
+    const handleText = () => {
+        setShow(!show)
+    }
+
+    const renderCard = () => {
+        if(show) {
+            return (
+                <CreateCard 
+                    titleName="The Main Idea Building Text Summarization Using Hugging Face!"
+                    titleLink="https://medium.com/@rizq.ramadhan17/the-main-idea-building-text-summarization-using-hugging-face-fae34e7500f4"
+                    mainText="Sharing ideas and building text summarization using Transformers from Hugging Face to understand English long text into a concise conclusion Bahasa."
+                    linkCode="https://github.com/egrizq/text_summarization"
+                    tags={["Text Summarization", "Python", "Machine Learning", "Javascript", "Torch", "HTML", "CSS"]}
+                />
+            )
+        }
+    }
+
     return (
         <>
             <title>card bewarna</title>
 
-            <div className="container mx-auto p-4 flex justify-center">
-                <div className="flex flex-wrap w-full">
+            <div className="container flex p-2 justify-center font-mono">
+                {renderCard()}
+            </div>
 
-                    <div className="p-3">
-                        <div className="flex flex-col w-12/12 sm:w-10/12 md:w-10/12 lg:w-6/12  space-y-3 p-4 text-justify bg-gray-200 mx-auto rounded-md font-mono">
-                            <Title 
-                                name="The Main Idea Building Text Summarization Using Hugging Face!" 
-                                linkTitle="https://medium.com/@rizq.ramadhan17/the-main-idea-building-text-summarization-using-hugging-face-fae34e7500f4" />
-                            <Main text="Sharing ideas and building text summarization using Transformers from Hugging Face to understand English long text into a concise conclusion Bahasa." />
-                            <SourceCode linkCode="https://github.com/egrizq/text_summarization" />
-                            <div className="flex flex-wrap">
-                                <Tags names={["Text Summarization", "Python", "Machine Learning", "Javascript", "Torch", "HTML", "CSS"]} />
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div className="container flex justify-center mx-auto p-2 font-mono">
+                <button className="px-4 py-2 bg-gray-300 border-black border-2 border-opacity-75"
+                    onClick={handleText}>
+                    See All
+                </button>
             </div>
         </>
     )
