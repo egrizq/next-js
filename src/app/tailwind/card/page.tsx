@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "../../styles.css"
 import CreateCard from "@/app/components/card";
+import { listSkill } from "@/app/components/skill-user";
 
 export default function ColorCardCenter() {
     const [show, setShow] = useState<boolean>(true)
@@ -39,12 +40,13 @@ export default function ColorCardCenter() {
         }
     }
 
+
     return (
         <>
             <title>card bewarna</title>
             
-            <div className="container mx-auto p-1 flex justify-center">
-                <div className="flex w-full flex-col">
+            <div className="container mx-auto p-1 justify-center">
+                <div className="flex flex-col">
                     <CreateCard 
                         titleName="The Main Idea Building Text Summarization Using Hugging Face!"
                         titleLink="https://medium.com/@rizq.ramadhan17/the-main-idea-building-text-summarization-using-hugging-face-fae34e7500f4"
@@ -64,13 +66,26 @@ export default function ColorCardCenter() {
                     {renderCard()}
                 </div>
             </div>
-
+            
             <div className="container flex justify-center mx-auto p-2 font-mono">
                 <button className="px-4 py-2 bg-gray-300 border-black border-2 border-opacity-75"
                     onClick={() => setShow(!show)}>
                     See All
                 </button>
             </div>
+
+            <div className="container mx-auto p-2 justify-center">
+                <h1 className="text-3xl font-bold text-center">
+                    My Skills
+                </h1>
+                
+                <div className="flex w-full justify-center p-2">
+                    <div className="flex sm:w-10/12 md:w-12/12 lg:w-6/12 justify-center flex-wrap">
+                        {listSkill()}
+                    </div>
+                </div>
+            </div>
+
         </>
     )
 }
